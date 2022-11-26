@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://kit.fontawesome.com/9899644c84.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./app.css" />
+    <title>Movie Booking Website</title>
+  </head>
+  <body>
+
+    <div class="logo-search">
+      <div class="logo">Book Movie</div>
+      <div id="search-bar">
+        <input type="search" placeholder="Enter your location" id="search" />
+        <div id="city-container">
+         
+        </div>
+      </div>
+    </div>
+    <nav class="nav-list">
+      <div class="list">
+        <div><a id="nav-item" href="index.html">Home</a></div>
+        <div id="event"><a id="nav-item" href="#">Events</a></div>
+        <div><a id="nav-item" href="form.html">Add Events</a></div>
+        
+      </div> 
+    </nav>
+    
+    <div class="top-trending">
+      
+      <div id="top-trending-title">
+        <h1 id="cover-title"></h1>
+        <button class="cover-btn">Play</button>
+        <button class="cover-btn">My List</button>
+        
+      </div>
+    </div>
+    
+    <div class="top-trending-container">
+      <h3 class="top-trending-heading">Trending Now </h3>
+        <div class="top-trending-movie" id="row_1">   
+          
+        </div>
+     
+    </div>
+
+    <div class="book-movie top-trending-container">
+      <h3 class="top-trending-heading">Popular Movies</h3>
+        <div class="top-trending-movie" id="row_2">   
+          
+        </div>
+     
+    </div>
+
+    <div class="book-movie top-trending-container">
+      <h3 class="top-trending-heading">Popular TV Series</h3>
+        <div class="top-trending-movie" id="row_3">   
+          
+        </div>
+     
+    </div>
+    <div class="book-movie top-trending-container">
+      <h3 class="top-trending-heading">Movie Near Your City</h3>
+        <div class="book-movie-div top-trending-movie">   
+          
+        </div>
+     
+    </div>
+    <div class="wraper">
+     
+      <div class="movie-click">
+        <div id="booker">
+         
+        </div>
+      </div>
+    </div>
+    <div class="events-container"></div>
+    <footer>
+      <ul class="icons">
+          <li><a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+     
+          <div class="footer-copyright">
+              <p>Copyright @ 2022 All Rights Reserved.</p>
+          </div>
+  </footer>
+
+    <script src="./app.js" defer type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/9899644c84.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./form.css" />
+    <link rel="stylesheet" href="./app.css" />
+    <title>Movie Booking Website</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Book Movie</div>
+      <div id="search-bar">
+        <input type="search" placeholder="Enter your location" id="search" />
+        <div id="city-container">
+         
+        </div>
+      </div>
+      <div class="list">
+        <div><a id="nav-item" href="index.html">Home</a></div>
+        <!-- <div><a id="nav-item" href="#">Events</a></div> -->
+        <div><a id="nav-item" href="form.html">Add Events</a></div>
+      </div>
+    </nav>
+    <div class="container">  
+        <form id="contact" >
+          <h3>Hello There,</h3>
+          <h4>Please fill the following details</h4>
+          <fieldset>
+            <input placeholder="Your name" type="text" tabindex="1"  autofocus>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Your Email Address" type="email" tabindex="2" >
+          </fieldset>
+          <fieldset>
+            <input placeholder="Your Phone Number" type="tel" tabindex="3" >
+          </fieldset>
+          <fieldset>
+            <input placeholder="Ticket Price" type="number" tabindex="4" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Date" type="date" tabindex="4" required >
+          </fieldset>
+          <fieldset>
+            <input placeholder="Time" type="time" tabindex="4" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Enter the city name" tabindex="5" ></input required>
+          </fieldset>
+          <fieldset>
+            <a href="index.html" >
+              <button name="submit" type="submit" id="contact-submit" >Submit</button>
+            </a>
+          </fieldset>
+        </form>
+       
+        
+      </div>
+    <script src="./form.js" ></script>
+    
+    
+  </body>
+</html>
