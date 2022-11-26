@@ -344,7 +344,7 @@ a{
 }
 
 footer{
-  background-color: hsl(0,0%,8%);
+  background-color:rgba(3, 36, 63, .6);
   /* background-color: #272727; */
   text-align: center;
   text-transform: uppercase;
