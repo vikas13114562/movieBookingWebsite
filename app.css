@@ -12,8 +12,10 @@ body{
 }
 
 .logo-search {
+  padding-left: 5rem;
+    padding-right: 1rem;
   padding: 0.6rem;
-  height: 3.5rem;
+  height: 4rem;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -23,20 +25,36 @@ body{
   width: 100%;
   z-index: 999;
 }
+.logo {
+  width: 50%;
+  object-fit: cover;
+}
+
+.logo-img {
+  max-width: 100%;
+  max-height: 4rem;
+}
 
 nav {
     width: 100%;
-    
-    display: flex;
+    padding-left: .5rem;
+    padding-right: .5rem;
     position: absolute;
-    justify-content: space-evenly;
-    
-    background-color:rgba(3, 36, 63, .8);
-    top: 3.4rem;
+   
+    background-color:rgba(4, 82, 83, 0.5);
+    top: 4rem;
     color: white;
     position: fixed;
     z-index: 90;
-    transition: top 0.3s;
+    transition: top 0.1s;
+}
+
+.list {
+  display: flex;
+  width: 90%;
+  margin: 0px auto 0px auto;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
@@ -53,19 +71,43 @@ nav {
   outline: none;
   width: 22vw;
   height: 6vh;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 8px 0px 8px;
   background-color:rgba(81, 118, 146, 0.3);
   padding: 10px;
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 10px;
   color: white;
 }
+.search-icon {
+  font-size: 2rem;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+  #search {
+    width: 30vw;
+
+  }
+  .cover-btn {
+    font-weight: 400;
+  }
+  .list {
+    justify-content: space-between;
+  }
+}
+
+
 #search-bar,#city-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   
+}
+.hide {
+  display: none;
+ 
 }
 
 #city-container {
@@ -82,11 +124,6 @@ nav {
   cursor: pointer;
 }
 
-.list {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .logo {
   font-family: 'Libre Baskerville', serif;
@@ -120,9 +157,9 @@ nav {
   font-weight: 700;
   border-radius: 0.2vw;
   margin-top: 1rem;
-  
+  width: 5rem;
   margin-right: 1rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   background-color: rgba(51,51,51,.7);
 }
 
@@ -156,8 +193,8 @@ nav {
 
 .movie-card-img{
   object-fit: contain;
-  max-width: 20%;
-  max-height: 250px;
+  max-width: 26%;
+  max-height: 300px;
   border-radius: 6px;
   
   transition: transform .45s;
@@ -168,17 +205,6 @@ nav {
   transform: scale(1.2);
 }
 
-.movie-card-span{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  display: flex;
-  gap: 2px;
-  color: yellow;
-  padding: 5px;
-  justify-content: space-between;
-  align-items: center;
-}
 
 
 
@@ -225,12 +251,8 @@ nav {
   width: 18%;
 }
 
-.list > div {
-  text-decoration: none;
-  padding: 0 60px;
-}
 
-.movie-click {
+.movie-click , .event-movie-click{
   
   padding: 10px;
   display: flex;
@@ -241,7 +263,7 @@ nav {
 }
 
 .movie-click-img{
-  width: 20%;
+  max-width: 250px;
   max-height: 350px;
   border-radius: 8px;
 }
@@ -264,11 +286,27 @@ nav {
 }
 
 .booking-grid > div {
-  width: 60px;
-  height: 60px;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width:650px) {
+  .booking-grid > div{
+    width: 2rem;
+    height: 2rem;
+
+  }
+
+  .booking-grid{
+    row-gap: 4px;
+    column-gap: 4px;
+  }
+  .event-holder {
+    width: 50%;
+  }
 }
 
 .selected-seat {

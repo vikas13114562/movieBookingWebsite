@@ -11,26 +11,24 @@
       rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/9899644c84.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
     <link rel="stylesheet" href="./form.css" />
     <link rel="stylesheet" href="./app.css" />
-    <title>Movie Booking Website</title>
+    <title>entertainmentFirst</title>
   </head>
   <body>
-    <nav>
-      <div class="logo">Book Movie</div>
-      <div id="search-bar">
-        <input type="search" placeholder="Enter your location" id="search" />
-        <div id="city-container">
-         
-        </div>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="./img/logo.png" alt="logo" class="logo-img">
       </div>
-      <div class="list">
+      
+      <div class="form-list-container">
         <div><a id="nav-item" href="index.html">Home</a></div>
         <!-- <div><a id="nav-item" href="#">Events</a></div> -->
         <div><a id="nav-item" href="form.html">Add Events</a></div>
       </div>
-    </nav>
+    </div>
     <div class="container">  
         <form id="contact" >
           <h3>Hello There,</h3>
@@ -65,6 +63,19 @@
        
         
       </div>
+
+      <footer>
+        <ul class="icons">
+            <li><a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        </ul>
+       
+            <div class="footer-copyright">
+                <p>Copyright @ 2022 All Rights Reserved.</p>
+            </div>
+    </footer>
     <script src="./form.js" ></script>
     
     

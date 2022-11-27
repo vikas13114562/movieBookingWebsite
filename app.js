@@ -5,11 +5,27 @@ const movie_click = document.querySelector(".movie-click");
 
 const wraper = document.querySelector(".wraper");
 
+let search = document.querySelector('#search')
+
 let booked_ticket = [];
 const booker_div = document.getElementById("booker");
 const search_div = document.getElementById('city-container');
 const search_inp = document.getElementById('search');
 const nav = document.getElementsByTagName('nav')[0]
+
+let search_icon = document.querySelector('.search-icon')
+
+search_icon.addEventListener('click', displaySearch)
+
+function displaySearch() {
+  console.log("hello");
+  if(search.classList.contains('hide')) {
+    search.classList.remove('hide')
+  }
+  else {
+    search.classList.add('hide')
+  }
+}
 
 // ..........................Responsive...........................
 
@@ -17,7 +33,7 @@ let prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   let currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.querySelector('.nav-list').style.top = "3.4rem";
+    document.querySelector('.nav-list').style.top = "4rem";
   } else {
     document.querySelector('.nav-list').style.top = "-50px";
     
@@ -188,9 +204,15 @@ fetchMovieList().then((res) => {
 function afterMovieClicked(ele,movie) {
  
   let tempIm = document.createElement('img')
-  tempIm.className = "movir-card-img"
+  tempIm.className = "movie-card-img"
   tempIm.classList.add('movie-click-img');
   tempIm.src = ele.src
+
+  let prevImg = document.querySelector('.movie-click img');
+  
+  if(prevImg) {
+    movie_click.removeChild(prevImg)
+  }
   
   movie_click.insertBefore(tempIm,movie_click.firstChild);
   bookMovie(movie);
@@ -210,6 +232,7 @@ function bookMovie(movieName) {
   book_btn.id = "book-ticket-btn"
   book_btn.className = "v-none"
   book_btn.addEventListener("click", bookBtn); 
+  booker_div.innerHTML = "";
 
   booker_div.append(h3,grid_holder,book_btn)
  
@@ -359,7 +382,7 @@ function eventFunction() {
   isEventClicked = true;
   // wraper.innerHTML = "";
   let newDiv = document.createElement('div');
-  newDiv.classList.add('movie-click');
+  newDiv.classList.add('event-movie-click');
  
 
   let tempArr = localStorage.getItem('myData');
@@ -395,7 +418,7 @@ function filterEvent(cityName) {
   
 
   let newDiv = document.createElement('div');
-  newDiv.classList.add('movie-click');
+  newDiv.classList.add('event-movie-click');
   // wraper.innerHTML = ""
   event_container.innerHTML = ""
   let tempArr = localStorage.getItem('myData');

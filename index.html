@@ -14,23 +14,26 @@
     <script src="https://kit.fontawesome.com/9899644c84.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./app.css" />
-    <title>Movie Booking Website</title>
+    <title>entertainmentFirst</title>
   </head>
   <body>
 
     <div class="logo-search">
-      <div class="logo">Book Movie</div>
+      <div class="logo">
+        <img src="./img/logo.png" alt="logo" class="logo-img">
+      </div>
       <div id="search-bar">
-        <input type="search" placeholder="Enter your location" id="search" />
+        <input type="search" placeholder="Enter your location" id="search" class="hide" />
         <div id="city-container">
          
         </div>
       </div>
+      <ion-icon name="search-outline" class="search-icon"></ion-icon>
     </div>
     <nav class="nav-list">
       <div class="list">
         <div><a id="nav-item" href="index.html">Home</a></div>
-        <div id="event"><a id="nav-item" href="#">Events</a></div>
+        <div id="event"><a id="nav-item" href="#event-section">Events</a></div>
         <div><a id="nav-item" href="form.html">Add Events</a></div>
         
       </div> 
@@ -84,11 +87,12 @@
         </div>
       </div>
     </div>
-    <div class="events-container"></div>
+    <div class="events-container" id="event-section"></div>
     <footer>
       <ul class="icons">
-          <li><a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
-          <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="https://github.com/vikas13114562" target="_blank"><ion-icon name="logo-github"></ion-icon></a></li>
+          <li><a href="https://www.linkedin.com/in/vikas-sharma-436712104/" target="_blank">
+            <ion-icon name="logo-linkedin"></ion-icon></a></li>
           <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
           <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
       </ul>
