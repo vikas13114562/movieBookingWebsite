@@ -71,6 +71,9 @@ nav {
   cursor: pointer;
   color: white;
 }
+#nav-item:hover{
+  color: yellow;
+}
 
 
 #search {
@@ -385,6 +388,9 @@ input[type="submit"] {
   background-color: gray;
   border-radius: 8px;
   
+}
+.book-movie-div > img, .booking-grid > div {
+  cursor: pointer;
 }
 
 /* .................footer................. */
