@@ -1,5 +1,8 @@
 import { fetchMovieAvailability, fetchMovieList } from "./api.js";
 import {city} from './city.js'
+import { availibility } from "./api.js";
+
+
 
 const movie_click = document.querySelector(".movie-click");
 
@@ -18,7 +21,7 @@ let search_icon = document.querySelector('.search-icon')
 search_icon.addEventListener('click', displaySearch)
 
 function displaySearch() {
-  console.log("hello");
+  
   if(search.classList.contains('hide')) {
     search.classList.remove('hide')
   }
@@ -60,6 +63,9 @@ search_inp.addEventListener('keyup',(e) => {
   search_div.innerHTML = "";
   let cityName = e.target.value.toLowerCase();
   let arr = [];
+  if(cityName.length <3) {
+    search_div.style.padding = "0px";
+  }
   if(cityName.length >= 3) {
     if(search_div.style.padding !== "5px") {
       search_div.style.padding = "5px"
@@ -73,7 +79,7 @@ search_inp.addEventListener('keyup',(e) => {
   }
   if(cityName.length >= 3 && arr.length == 0) {
     let li = document.createElement('li');
-    li.innerText = "No result found";
+    li.innerHTML = `Not found <ion-icon name="close-outline"  id='cross'></ion-icon>`;
     search_div.append(li);
     li.addEventListener('click',()=>{
       search_inp.value = "";
@@ -219,6 +225,13 @@ function afterMovieClicked(ele,movie) {
 
 }
 
+// ..........in order to make seat selector work as real time data we need to store availibility on local store
+
+
+localStorage.setItem("seatDetails",JSON.stringify(availibility))
+let newSeatArr ;
+
+
 function bookMovie(movieName) {
 
   let h3 = document.createElement('h3');
@@ -231,16 +244,24 @@ function bookMovie(movieName) {
   book_btn.innerText = "Book my seats"
   book_btn.id = "book-ticket-btn"
   book_btn.className = "v-none"
-  book_btn.addEventListener("click", bookBtn); 
+  // book_btn.addEventListener("click", bookBtn); 
+  book_btn.addEventListener("click", ()=>(bookBtn(movieName))); 
   booker_div.innerHTML = "";
 
   booker_div.append(h3,grid_holder,book_btn)
+
+  let seat_availibility = JSON.parse(localStorage.getItem("seatDetails"));
+  newSeatArr = seat_availibility[movieName]
+  // console.log(seat_availibility[movieName]);
+  grid_holder.innerHTML = "";
+  buildGrid(newSeatArr,grid_holder,book_btn);
  
  
-  fetchMovieAvailability(movieName).then((data) => {
-    grid_holder.innerHTML = "";
-    buildGrid(data,grid_holder,book_btn);
-  });
+  // fetchMovieAvailability(movieName).then((data) => {
+    
+  //   grid_holder.innerHTML = "";
+  //   buildGrid(data,grid_holder,book_btn);
+  // });
 }
 
 function buildGrid(data,div,btn) {
@@ -296,23 +317,34 @@ function creatForm() {
   let form = document.createElement("form");
   form.id = "customer-detail-form";
   form.innerHTML = `<label for="email">Email: </label>
-    <input type="email" required><br>
+    <input type="email" ><br>
     <label for="phone">Phone number: </label>
-    <input type="number" required><br>
+    <input type="number" ><br>
     <input type="submit" value="Purchase">`;
 
   return form;
 }
 let formElement = creatForm();
 
-function bookBtn() {
+function bookBtn(movieName) {
+  
   booker_div.innerHTML = "";
   let newDiv = document.createElement("div");
   newDiv.id = "confirm-purchase";
+  if(newDiv.style.padding === "20px") {
+    newDiv.style.padding = "0px";
+  }
+  else newDiv.style.padding = "20px"; 
   let newh3 = document.createElement("h3");
 
-  newh3.innerHTML = `Confirm your booking for seat number ${booked_ticket.join()}`;
+  let tempArr = [...newSeatArr, ...booked_ticket];
+  let modifyData = JSON.parse(localStorage.getItem("seatDetails"));
+  modifyData[movieName] = tempArr;
+  localStorage.setItem("seatDetails",JSON.stringify(modifyData))
+  
 
+  newh3.innerHTML = `Confirm your booking for seat number ${booked_ticket.join()}`;
+ 
   newDiv.append(newh3, formElement);
   booker_div.append(newDiv);
 }
@@ -326,6 +358,12 @@ function finalSubmit() {
   let email = formElement[0].value;
   let no = formElement[1].value;
   let success_div = document.createElement("div");
+
+  if(success_div.style.padding === "20px") {
+    success_div.style.padding = "0px";
+  }
+  else success_div.style.padding = "20px";
+
   success_div.id = "Success";
   let seat = booked_ticket.length > 1 ? "Seat Numbers" : "Seat Number";
   success_div.innerHTML = `<strong>Booking Details</strong> <br><br> ${seat}: ${booked_ticket.join()} <br><br>
@@ -342,7 +380,7 @@ function finalSubmit() {
   
   booker_div.append(success_div);
   
-  
+  booked_ticket = []
 
 }
 
